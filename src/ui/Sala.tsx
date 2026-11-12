@@ -23,7 +23,7 @@ const TEXTOS: Record<Aviso["motivo"], string> = {
 const GRAVES: Aviso["motivo"][] = ["llena", "empezada", "no-existe", "expulsado"];
 
 export function Sala({ codigo, anfitrion, yo, alSalir }: Props) {
-  const { estado, enviar, aviso } = useSala(codigo, anfitrion, yo);
+  const { estado, enviar, aviso, anfitrionFuera } = useSala(codigo, anfitrion, yo);
   const [toast, setToast] = useState<string | null>(null);
   const fichas = useMemo(() => calcularFichas(estado?.jugadores ?? []), [estado?.jugadores]);
   useWakeLock();
@@ -42,6 +42,7 @@ export function Sala({ codigo, anfitrion, yo, alSalir }: Props) {
   }, [aviso]);
 
   const dentro = estado?.jugadores.some((j) => j.id === yo.id);
+  const nombreAnfitrion = estado?.jugadores.find((j) => j.id === estado.anfitrion)?.nombre;
 
   let contenido: React.ReactNode;
   if (!estado || !dentro) {
@@ -81,6 +82,13 @@ export function Sala({ codigo, anfitrion, yo, alSalir }: Props) {
   return (
     <>
       {contenido}
+      {anfitrionFuera && dentro && (
+        // Su móvil hace de árbitro: si minimiza la app, la partida espera (lo que se toque se guarda).
+        <div className="esperando-anfitrion" role="status">
+          <span className="latiendo" aria-hidden />
+          Esperando a {nombreAnfitrion ?? "quien creó la sala"}…
+        </div>
+      )}
       {toast && (
         <div className="toast" role="status" key={aviso?.n}>
           {toast}

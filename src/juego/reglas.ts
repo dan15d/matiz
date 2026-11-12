@@ -42,6 +42,11 @@ export interface Estado {
   usados: number[];
   objetivo: number | null;
   reparto: Reparto[];
+  /**
+   * Por jugador, el número de su última acción ya aplicada. Los móviles reenvían lo que no ven aquí
+   * (p. ej. si el anfitrión tenía la app minimizada) y el anfitrión descarta lo repetido.
+   */
+  hechas?: Record<string, number>;
 }
 
 export type Accion =

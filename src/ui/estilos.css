@@ -87,7 +87,19 @@ h2 {
   padding: 0 12px;
 }
 .boton.late {
-  animation: latido 1.2s ease-in-out infinite;
+  animation: parpadeo 1.2s ease-in-out infinite;
+}
+@keyframes bajar-aviso {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -12px);
+  }
+}
+@keyframes parpadeo {
+  50% {
+    opacity: 0.25;
+    transform: scale(0.7);
+  }
 }
 @keyframes latido {
   50% {
@@ -1283,4 +1295,34 @@ h2 {
 .version-nueva .boton {
   min-height: 40px;
   padding: 0 16px;
+}
+
+/* Cuando el anfitrión minimiza la app, la partida espera: se dice arriba, sin tapar el tablero. */
+.esperando-anfitrion {
+  position: fixed;
+  left: 50%;
+  top: calc(10px + var(--arriba));
+  z-index: 60;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: max-content;
+  max-width: calc(100% - 32px);
+  padding: 9px 16px;
+  border-radius: 999px;
+  background: var(--superficie-2);
+  border: 1px solid var(--borde);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.55);
+  font-size: 0.92rem;
+  font-weight: 600;
+  animation: bajar-aviso 0.3s ease-out;
+}
+.esperando-anfitrion .latiendo {
+  flex: none;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--acento);
+  animation: latido 1.2s ease-in-out infinite;
 }

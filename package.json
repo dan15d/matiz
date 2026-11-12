@@ -12,7 +12,7 @@
     "typecheck": "tsc -b"
   },
   "dependencies": {
-    "@supabase/supabase-js": "^2.118.0",
+    "@supabase/realtime-js": "^2.119.0",
     "lucide-react": "^1.63.0",
     "qrcode-generator": "^2.0.4",
     "react": "^19.3.1",

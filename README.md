@@ -14,6 +14,7 @@ El tablero es una paleta propia de 24 × 36 (864) colores, con columnas de la A 
 
 - Vite + React + TypeScript, como el Grimorio.
 - **El móvil de quien crea la sala hace de mesa**: lleva las reglas (`src/juego/reglas.ts`) y reparte el estado. Los demás le mandan sus acciones por un canal de **Supabase Realtime (broadcast)**, sin tablas ni migraciones. Si se le recarga la página, recupera la partida.
+- **Minimizar la app no rompe la partida**: cada acción va numerada y se reenvía hasta que el anfitrión la confirma (el estado lleva `hechas`, y lo repetido se descarta). Al volver a la app se abre una conexión nueva, y si el anfitrión deja de dar señales los demás ven «Esperando a …».
 - El color secreto solo existe en el móvil de quien da la pista hasta que lo revela.
 - **Sin Supabase** (sin `.env.local`), la sala funciona entre pestañas del mismo navegador, para probar. Con Supabase, para probar varias pestañas en un navegador, añade `?p=a`, `?p=b`… a la dirección: cada una hace de un móvil distinto.
 
