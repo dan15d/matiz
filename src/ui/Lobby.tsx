@@ -110,7 +110,7 @@ export function Lobby({ estado, yo, fichas, enviar }: Props) {
       {soyAnfitrion && (
         <div className="barra-accion">
           <button className="boton principal grande" disabled={faltan > 0} onClick={() => enviar({ t: "empezar", id: yo })}>
-            {faltan > 0 ? `Faltan ${faltan} para empezar` : "Empezar partida"}
+            {faltan > 1 ? `Faltan ${faltan} para empezar` : faltan === 1 ? "Falta 1 para empezar" : "Empezar partida"}
           </button>
         </div>
       )}
