@@ -1259,3 +1259,28 @@ h2 {
     animation-iteration-count: 1 !important;
   }
 }
+
+/* Aviso de versión nueva (la app instalada puede quedarse con una vieja en segundo plano) */
+.version-nueva {
+  position: fixed;
+  left: 50%;
+  bottom: calc(16px + var(--abajo));
+  z-index: 50;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: max-content;
+  max-width: calc(100% - 32px);
+  padding: 8px 8px 8px 16px;
+  border-radius: 16px;
+  background: var(--superficie-2);
+  border: 1px solid var(--borde);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
+  font-weight: 600;
+  animation: subir-panel 0.35s cubic-bezier(0.2, 0.9, 0.3, 1.1);
+}
+.version-nueva .boton {
+  min-height: 40px;
+  padding: 0 16px;
+}
