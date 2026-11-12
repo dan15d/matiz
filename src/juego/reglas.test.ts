@@ -21,7 +21,7 @@ describe("paleta", () => {
 
   it("nombra las casillas por columna y fila", () => {
     expect(nombreCasilla(celdaEn(0, 0))).toBe("A1");
-    expect(nombreCasilla(celdaEn(17, 35))).toBe("T36");
+    expect(nombreCasilla(celdaEn(23, 35))).toBe("Z36");
     expect(distancia(celdaEn(2, 2), celdaEn(3, 4))).toBe(2);
   });
 });

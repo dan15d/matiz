@@ -1,13 +1,13 @@
 /**
  * Paleta propia del juego, calculada en OKLCH para que los pasos de luz se vean iguales en todos los
- * tonos. 18 × 36 = 648 colores: cada fila es un tono (la vuelta entera a la rueda de
+ * tonos. 24 × 36 = 864 colores (columnas de la A a la Z): cada fila es un tono (la vuelta entera a la rueda de
  * color de arriba abajo) y cada columna, de claro a oscuro.
  */
-export const COLUMNAS = 18;
+export const COLUMNAS = 24;
 export const FILAS = 36;
 export const CASILLAS = COLUMNAS * FILAS;
 
-const LETRAS = "ABCDEFGHJKLMNPQRST"; // sin la I ni la O para no confundirlas con el 1 y el 0
+const LETRAS = "ABCDEFGHJKLMNPQRSTUVWXYZ"; // sin la I ni la O para no confundirlas con el 1 y el 0
 
 export const columnaDe = (celda: number) => celda % COLUMNAS;
 export const filaDe = (celda: number) => Math.floor(celda / COLUMNAS);
@@ -64,7 +64,7 @@ function calcular(): string[] {
     const tono = (fila * 360) / FILAS + 15;
     for (let col = 0; col < COLUMNAS; col++) {
       const t = col / (COLUMNAS - 1);
-      const luz = 0.96 - t * 0.7;
+      const luz = 0.965 - t * 0.72;
       const croma = 0.26 * Math.sin(Math.PI * (0.13 + 0.77 * t));
       colores.push(oklchAHex(luz, croma, tono));
     }

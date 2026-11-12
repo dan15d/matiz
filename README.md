@@ -8,7 +8,7 @@ Juego de pistas de color para jugar **en persona**, cada uno con su móvil (de 3
 4. Si quiere, da una **segunda pista** (dos palabras) y cada uno pone otra marca.
 5. Al **revelar**: 3 puntos en la casilla exacta, 2 en el cuadro de alrededor (3×3) y 1 en el siguiente (5×5). Quien da la pista gana 1 por cada marca en el 3×3. Los colores jugados no vuelven a salir.
 
-El tablero es una paleta propia de 18 × 36 (648) colores calculada en OKLCH (cada fila es un tono y cada columna va de claro a oscuro). Las casillas son cuadradas y el tablero se desplaza (las letras y los números se quedan fijos); al tocar se abre una **lupa** con las de alrededor en grande para confirmar.
+El tablero es una paleta propia de 24 × 36 (864) colores, con columnas de la A a la Z, calculada en OKLCH (cada fila es un tono y cada columna va de claro a oscuro). Las casillas son cuadradas y el tablero se desplaza (las letras y los números se quedan fijos); al tocar se abre una **lupa** con las de alrededor en grande para confirmar.
 
 ## Cómo funciona por dentro
 
