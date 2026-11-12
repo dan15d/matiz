@@ -1,0 +1,12 @@
+{
+  "name": "matiz",
+  "short_name": "matiz",
+  "description": "Una palabra, un color: juego de pistas para jugar en persona.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0c0c11",
+  "theme_color": "#0c0c11",
+  "icons": [{ "src": "icono.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }]
+}
